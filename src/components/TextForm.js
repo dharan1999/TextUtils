@@ -1,15 +1,18 @@
 import React,{useState} from 'react'
 
+
 export default function TextForm(props) {
 const [text,setText] = useState('');
 const [vowel,setVowel] = useState(0);
     const handleUpClick = (event) => {
         let newText = text.toUpperCase()
         setText(newText)
+        props.showAlert("Converted to Upper Case","success")
     }
     const handleLowClick = (event) => {
         let newText = text.toLowerCase()
         setText(newText)
+        props.showAlert("Converted to Upper Case","success")
     }
 
     const handleToggleClick = (event) => {
@@ -54,7 +57,7 @@ const [vowel,setVowel] = useState(0);
         <h1>
             Your text Summary
         </h1>
-        <p>{text.split(" ").length} words and {text.length} characters</p>
+        <p>{text.length === 0 ? 0 : text.split(" ").length} words and {text.length} characters</p>
         <p>{0.008 * text.split(" ").length} minutes to read the text</p>
         <h2>
             Preview
