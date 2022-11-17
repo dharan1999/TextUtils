@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar';
  import TextForm from './components/TextForm';
 import About from './components/About';
+import ShowItem from './components/ShowItem';
 import './App.css';
 
 import React,{ useState } from 'react';
@@ -49,16 +50,17 @@ function App() {
   }
   return (
    <>
-    <Navbar title="textutils2" mode = {mode} red = {red} changeRed = {changeRed} toggleMode = {toggleMode} aboutTextUtils="about1"/>
+    <Navbar title="textutils2" mode = {mode} red = {red} changeRed = {changeRed} toggleMode = {toggleMode} aboutTextUtils="About" showItem = "shotItem"/>
      
         <Alert1 alert = {alert}></Alert1>
     <div className='container my-3'>
       <Routes>
         <Route exact path="/" element={ <TextForm showAlert = {showAlert} heading="Enter the text to analyze to below" mode = {mode} />} />
         <Route exact path="about" element={<About />}/>
-        
+        <Route exact path="showitem" element={<ShowItem />}/>
       </Routes>
       </div>
+      
    </>
   );
 }
