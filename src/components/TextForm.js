@@ -48,16 +48,16 @@ const [vowel,setVowel] = useState(0);
         <div className="mb-3">
             <textarea className="form-control" value={text} style={{backgroundColor: props.mode === 'dark'?'grey' : 'white',color: props.mode === 'dark'?'white' : 'black'}}  onChange={handleChange} id="myBox" rows="8"></textarea>
         </div>
-        <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to Uppercase</button>
-        <button className="btn btn-primary mx-2" onClick={handleLowClick}>Convert to Lowercase</button>
-        <button className="btn btn-primary mx-2" onClick={handleToggleClick}>Toggle the words</button>
-        <button className="btn btn-primary mx-2" value = {vowel} onClick={handleVowelClick}>Count Vowels</button>
+        <button className="btn btn-primary mx-2 my-1" onClick={handleUpClick}>Convert to Uppercase</button>
+        <button className="btn btn-primary mx-2 my-1" onClick={handleLowClick}>Convert to Lowercase</button>
+        <button className="btn btn-primary mx-2 my-1" onClick={handleToggleClick}>Toggle the words</button>
+        <button className="btn btn-primary mx-2 my-1" value = {vowel} onClick={handleVowelClick}>Count Vowels</button>
     </div>
     <div className='container my-3' style={{color: props.mode === 'dark'?'white' : 'black'}}>
         <h1>
             Your text Summary
         </h1>
-        <p>{text.length === 0 ? 0 : text.split(" ").length} words and {text.length} characters</p>
+        <p>{text.split(" ").filter((element) => {return element.length !== 0}).length} words and {text.length} characters</p>
         <p>{0.008 * text.split(" ").length} minutes to read the text</p>
         <h2>
             Preview
